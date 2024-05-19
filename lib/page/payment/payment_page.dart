@@ -112,7 +112,10 @@ class PaymentPage extends StatelessWidget {
                     child: Row(
                       children: [
                         Expanded(
-                          child: Text('Transaction History', style: TStyle.titleLight,),
+                          child: Text(
+                            'Transaction History',
+                            style: TStyle.titleLight,
+                          ),
                         ),
                         const Icon(Icons.navigate_next_outlined)
                       ],
@@ -125,10 +128,15 @@ class PaymentPage extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: Obx(
-        () => BottomNavBar(
-          total: controller.totalPayment.value,
-        ),
+      bottomNavigationBar: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Obx(
+            () => BottomNavBar(
+              total: controller.totalPayment.value,
+            ),
+          ),
+        ],
       ),
     );
   }
